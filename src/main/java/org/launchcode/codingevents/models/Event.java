@@ -61,11 +61,6 @@ public class Event extends AbstractEntity {
         this.type = type;
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -74,4 +69,8 @@ public class Event extends AbstractEntity {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

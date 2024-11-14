@@ -13,7 +13,6 @@ import java.util.Objects;
 @Entity
 public class EventCategory extends AbstractEntity{
 
-
     @NotNull
     @NotBlank
     @Size(min=3, message="Name must be at least 3 characters long")
