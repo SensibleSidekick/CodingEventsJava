@@ -12,12 +12,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import java.util.Objects;
 
 @Entity
-public class Event {
-
-
-    @Id
-    @GeneratedValue
-    private int id;
+public class Event extends AbstractEntity {
 
     @NotNull
     @NotBlank (message= "Name is required.")
@@ -41,10 +36,6 @@ public class Event {
 
     }
  public Event(){ }
-
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -83,16 +74,4 @@ public class Event {
         this.description = description;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Event event = (Event) o;
-        return id == event.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
 }
