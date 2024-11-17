@@ -47,6 +47,22 @@ public class EventController {
         return "events/index";
     }
 
+    @GetMapping("details")
+    public String displayEventDetails(@RequestParam Integer eventId, Model model) {
+
+        Optional<Event> result = eventRepository.findById(eventId);
+
+        if(result.isEmpty()){
+            model.addAttribute("title", "Invalid Event ID: " + eventId);
+        } else {
+            Event event = result.get();
+            model.addAttribute("title", event.getName() + "Details");
+            model.addAttribute("event", event);
+        }
+
+        return "events/details";
+    }
+
     @GetMapping("create")
     public String renderCreateEventForm(Model model){
         model.addAttribute("title", "Create Event");
